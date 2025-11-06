@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shopping App",
+  "welcome": "Welcome",
+  "signUp": "Sign Up",
+  "signIn": "Sign In",
+  "ourProducts": "Our Products",
+  "hotOffers": "Hot Offers",
+  "accountCreated": "Account created successfully",
+  "accountSignedIn": "Account sign-in successfully",
+  "close": "Close"
+}
