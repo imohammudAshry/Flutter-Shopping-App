@@ -5,7 +5,8 @@ import 'screens/home_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/signin_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Shopping App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'Suwannaphum', // استخدم الخط
+        fontFamily: 'Suwannaphum', 
       ),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
