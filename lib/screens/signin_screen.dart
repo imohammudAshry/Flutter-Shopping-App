@@ -105,7 +105,7 @@ void _submit() async {
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue.shade800,
+                          color: const Color.fromARGB(255, 21, 101, 192),
                         ),
                       ),
                       const SizedBox(height: 24),
