@@ -26,5 +26,4 @@ final sampleProducts = [
     imageUrl: 'https://picsum.photos/seed/p2/400/400',
     description: 'Running shoes',
   ),
-  // add more...
 ];

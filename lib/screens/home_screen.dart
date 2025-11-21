@@ -68,7 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
               }),
             ),
             const SizedBox(height: 12),
-            // Hot Offers section (ListView.builder with 5 items)
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 12),
               child: Align(

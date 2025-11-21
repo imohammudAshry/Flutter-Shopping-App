@@ -9,7 +9,6 @@ class LocalDatabase {
     return File(path);
   }
 
-  // ✅ حفظ مستخدم جديد
   static Future<void> saveUser(Map<String, dynamic> userData) async {
     final file = await _getFile();
 
@@ -21,7 +20,6 @@ class LocalDatabase {
       }
     }
 
-    // تحقق إن الإيميل مش مكرر
     bool exists = users.any((u) => u['email'] == userData['email']);
     if (!exists) {
       users.add(userData);
@@ -31,7 +29,6 @@ class LocalDatabase {
     }
   }
 
-  // ✅ التحقق من تسجيل الدخول
   static Future<bool> checkUser(String email, String password) async {
     final file = await _getFile();
     if (!await file.exists()) return false;

@@ -22,54 +22,61 @@ class _SignInScreenState extends State<SignInScreen> {
     super.dispose();
   }
 
-void _submit() async {
-  if (_formKey.currentState?.validate() ?? false) {
-    bool valid = await LocalDatabase.checkUser(
-      _email.text.trim(),
-      _pass.text.trim(),
-    );
+  void _submit() async {
+    if (_formKey.currentState?.validate() ?? false) {
+      bool valid = await LocalDatabase.checkUser(
+        _email.text.trim(),
+        _pass.text.trim(),
+      );
 
-    if (valid) {
-      showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-          title: const Text('Welcome back!'),
-          content: const Text('Login successful.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacement(PageRouteBuilder(
-                  pageBuilder: (_, a, __) => const HomeScreen(),
-                  transitionsBuilder: (_, a, __, child) =>
-                      FadeTransition(opacity: a, child: child),
-                  transitionDuration: const Duration(milliseconds: 600),
-                ));
-              },
-              child: const Text('Continue'),
-            ),
-          ],
-        ),
-      );
-    } else {
-      showDialog(
-        context: context,
-        builder: (_) => const AlertDialog(
-          title: Text('Invalid credentials'),
-          content: Text('Email or password is incorrect.'),
-        ),
-      );
+      if (valid) {
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            title: const Text('Welcome back!'),
+            content: const Text('Account sign-in successfully.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 600),
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const HomeScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+                child: const Text('Continue'),
+              ),
+            ],
+          ),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (_) => const AlertDialog(
+            title: Text('Invalid credentials'),
+            content: Text('Email or password is incorrect.'),
+          ),
+        );
+      }
     }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // ✅ خلفية
           Positioned.fill(
             child: Image.network(
               'https://i.pinimg.com/736x/db/d7/77/dbd777ca480c47e9e4e66d2f440a9bf5.jpg',
@@ -77,8 +84,6 @@ void _submit() async {
             ),
           ),
           Container(color: Colors.black.withOpacity(0.4)),
-
-          // ✅ المحتوى
           Center(
             child: SingleChildScrollView(
               child: Container(
@@ -134,15 +139,16 @@ void _submit() async {
                           onPressed: _submit,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue.shade700,
-                            padding:
-                                const EdgeInsets.symmetric(vertical: 14),
+                            padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(fontSize: 18,color: Color.fromARGB(214, 255, 255, 255)),
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color.fromARGB(214, 255, 255, 255)),
                           ),
                         ),
                       ),
@@ -154,8 +160,7 @@ void _submit() async {
                             Navigator.pushNamed(context, '/signup');
                           },
                           style: OutlinedButton.styleFrom(
-                            padding:
-                                const EdgeInsets.symmetric(vertical: 14),
+                            padding: const EdgeInsets.symmetric(vertical: 14),
                             side: BorderSide(color: Colors.blue.shade700),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),

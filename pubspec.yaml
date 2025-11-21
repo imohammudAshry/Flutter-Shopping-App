@@ -24,4 +24,7 @@ flutter:
 
   assets:
     - assets/images/
-    # ضع هنا أي صور محلية أخرى
+fonts:
+  - family: Suwannaphum
+    fonts:
+      - asset: assets/fonts/Suwannaphum-Regular.ttf

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping_app/screens/home_screen.dart';
 import '../utils/validators.dart';
-import 'home_screen.dart';
 import '../utils/local_database.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -44,9 +44,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context); // تقفل الـ dialog
-                  Navigator.pushReplacementNamed(
-                      context, '/signin'); // توديه على صفحة الـ Sign In
+                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (_, a, __) => const HomeScreen(),
+                      transitionsBuilder: (_, animation, __, child) =>
+                          FadeTransition(opacity: animation, child: child),
+                      transitionDuration: const Duration(milliseconds: 600),
+                    ),
+                  );
                 },
                 child: const Text('OK'),
               ),
