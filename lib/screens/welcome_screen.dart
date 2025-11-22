@@ -65,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                         const SizedBox(width: 16),
 
                         Image.network(
-                          "https://www.freepik.com/free-vector/shop-with-sign-open-design_8247029.htm#fromView=search&page=1&position=1&uuid=d9657bb6-2296-494e-965d-6f12692adcd9&query=shop",
+                          "https://www.freepik.com/free-vector/shop-with-sign-we-are-open_8274985.htm#from_element=cross_selling__vector",
                           width: 100,
                           height: 100,
                         ),
