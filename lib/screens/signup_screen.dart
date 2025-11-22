@@ -35,7 +35,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           'password': _pass.text.trim(),
         });
 
-        // أولاً: نعرض رسالة نجاح سريعة
         showDialog(
           context: context,
           builder: (_) => AlertDialog(

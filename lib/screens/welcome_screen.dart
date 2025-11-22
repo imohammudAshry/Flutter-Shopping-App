@@ -32,7 +32,6 @@ class WelcomeScreen extends StatelessWidget {
             color: Colors.black.withOpacity(0.45),
           ),
 
-          /// Main content
           Center(
             child: SingleChildScrollView(
               child: Container(
@@ -66,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                         const SizedBox(width: 16),
 
                         Image.network(
-                          "https://cdn-icons-png.flaticon.com/512/869/869869.png",
+                          "https://www.freepik.com/free-vector/shop-with-sign-open-design_8247029.htm#fromView=search&page=1&position=1&uuid=d9657bb6-2296-494e-965d-6f12692adcd9&query=shop",
                           width: 100,
                           height: 100,
                         ),

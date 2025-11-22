@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
         Locale('en'),
         Locale('ar'),
       ],
-      // start route
       initialRoute: '/',
       routes: {
         '/': (context) => const WelcomeScreen(),
